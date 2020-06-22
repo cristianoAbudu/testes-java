@@ -22,22 +22,35 @@ import java.util.Set;
  */
 public class ArquivoGrande {
 
-	public static void main (String args[]) throws IOException {
-		for(String frase:frasesQueMaisAparecem()) {
+	/**
+	 * Imprime as frases que mais aparecem no arquivo
+	 * 
+	 * @param args
+	 * @throws IOException
+	 */
+
+	public static void main(String args[]) throws IOException {
+
+		for (String frase : frasesQueMaisAparecem()) {
 			System.out.println(frase);
 		}
 	}
-	
-	private static List<String> frasesQueMaisAparecem() throws IOException{
+
+	/**
+	 * Le o arquivo testfile.txt linha por linha e retorna as 50 mil frases que mais
+	 * aparecem
+	 * 
+	 * @return
+	 * @throws IOException
+	 */
+	private static List<String> frasesQueMaisAparecem() throws IOException {
 		Map<String, Integer> fraseQuantidade = new HashMap<String, Integer>();
 
-		 
-		BufferedReader lerArq =new BufferedReader(new InputStreamReader(
-                new ArquivoGrande().getClass().getResourceAsStream("testfile.txt")));
+		// Leitura do arquivo com o buffered para ler linha por linha
+		BufferedReader lerArq = new BufferedReader(
+				new InputStreamReader(new ArquivoGrande().getClass().getResourceAsStream("testfile.txt")));
 
-		String linha = lerArq.readLine(); // lê a primeira linha
-		// a variável "linha" recebe o valor "null" quando o processo
-		// de repetição atingir o final do arquivo texto
+		String linha = lerArq.readLine();
 		while (linha != null) {
 			// Para cada linha do arquivo
 
@@ -51,7 +64,6 @@ public class ArquivoGrande {
 
 			linha = lerArq.readLine(); // lê da segunda até a última linha
 		}
-
 
 		// Reorganiza frases por quantidade
 		Map<String, Integer> frasesOrdenadasPelaQuantidade = sortByValueReverseOrder(fraseQuantidade);
@@ -73,6 +85,14 @@ public class ArquivoGrande {
 
 	}
 
+	/**
+	 * Ordena um mapa de acordo com seus valores em ordem decrescente
+	 * 
+	 * @param <K>
+	 * @param <V>
+	 * @param map
+	 * @return
+	 */
 	public static <K, V extends Comparable<? super V>> Map<K, V> sortByValueReverseOrder(Map<K, V> map) {
 		List<Entry<K, V>> list = new ArrayList<>(map.entrySet());
 

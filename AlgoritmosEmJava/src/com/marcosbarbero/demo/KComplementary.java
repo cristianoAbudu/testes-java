@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * integers. Given Array A, pair (i, j) is K- complementary if K = A[i] + A[j];
  *
  * @author Marcos Barbero
- * * @see <a href="https://github.com/marcosbarbero/code-challenge/blob/master/src/main/java/com/marcosbarbero/demo/KComplementary.java">https://github.com/marcosbarbero/code-challenge/blob/master/src/main/java/com/marcosbarbero/demo/KComplementary.java</a>
+ * @see <a href="https://github.com/marcosbarbero/code-challenge/blob/master/src/main/java/com/marcosbarbero/demo/KComplementary.java">https://github.com/marcosbarbero/code-challenge/blob/master/src/main/java/com/marcosbarbero/demo/KComplementary.java</a>
  */
 public class KComplementary {
 
